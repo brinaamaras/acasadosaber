@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa do Saber — Cadastro de Voluntários</title>
+    <meta name="description" content="Cadastre-se como voluntário na Casa do Saber e transforme vidas através da educação.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/form-validation.js" defer></script>
+    <script src="js/masks.js" defer></script>
+</head>
+<body class="page-layout">
+  <header class="hero" role="banner">
+    <div class="hero__inner container">
+      <div class="hero__brand">
+        <h1>Casa do Saber</h1>
+      </div>
+
+      <nav id="main-nav" aria-label="Navegação principal" role="navigation">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="nav-menu" role="menubar">
+          <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+          <li role="none"><a href="projetos.html" role="menuitem">Projetos</a></li>
+          <li role="none"><a href="cadastro.html" role="menuitem" aria-current="page">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    
+  <main id="main-content" role="main">
+    <article>
+      <header class="section-header">
+        <h2>🤝 Seja Um Transformador</h2>
+        <p class="lead">
+          Sua ajuda é a peça que falta para abrir as portas de um novo futuro para estas crianças.
+          Junte-se a nós como voluntário, doador ou parceiro e ajude a escrever o próximo capítulo desta história de sucesso e transformação.
+        </p>
+      </header>
+
+      <figure class="content-image">
+        <img src="imagens/cadastro_img.jpg" alt="Voluntários em atividade de leitura com crianças" loading="lazy">
+        <figcaption class="sr-only">Voluntários realizando atividade de leitura</figcaption>
+      </figure>
+
+      <section aria-labelledby="form-title">
+        <h3 id="form-title">Formulário de Inscrição para Professores Voluntários</h3>
+        
+        <form method="post" action="#" enctype="multipart/form-data" novalidate aria-labelledby="form-title">
+          <fieldset aria-labelledby="dados-pessoais">
+            <legend id="dados-pessoais"><strong>Seção 1: Dados Pessoais</strong></legend>
+
+            <div class="form-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="nome" class="required">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required aria-required="true" 
+                       placeholder="Digite seu nome completo" 
+                       pattern="[A-Za-zÀ-ÿ\s]{2,50}" 
+                       aria-describedby="nome-help">
+                <small id="nome-help" class="help-text">Mínimo 2 caracteres, apenas letras</small>
+              </div>
+
+              <div class="form-group">
+                <label for="cpf" class="required">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required aria-required="true" 
+                       placeholder="000.000.000-00" 
+                       pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" 
+                       data-mask="000.000.000-00"
+                       aria-describedby="cpf-help">
+                <small id="cpf-help" class="help-text">Formato: 000.000.000-00</small>
+              </div>
+            </div>
+
+            <div class="form-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="nascimento" class="required">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento" required aria-required="true" 
+                       min="1940-01-01" max="2006-12-31" aria-describedby="nascimento-help">
+                <small id="nascimento-help" class="help-text">Idade mínima: 18 anos</small>
+              </div>
+
+              <div class="form-group">
+                <label for="telefone" class="required">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required aria-required="true" 
+                       placeholder="(11) 99999-9999" 
+                       pattern="^\(\d{2}\)\s\d{4,5}-\d{4}$" 
+                       data-mask="(00) 00000-0000"
+                       aria-describedby="telefone-help">
+                <small id="telefone-help" class="help-text">Formato: (11) 99999-9999</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="required">E-mail:</label>
+              <input type="email" id="email" name="email" required aria-required="true" 
+                     placeholder="seu@email.com" 
+                     aria-describedby="email-help">
+              <small id="email-help" class="help-text">Enviaremos informações importantes para este email</small>
+            </div>
+          </fieldset>
+
+          <fieldset aria-labelledby="endereco-section">
+            <legend id="endereco-section"><strong>Seção 2: Endereço</strong></legend>
+            
+            <div class="form-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="form-group md:col-span-2">
+                <label for="endereco" class="required">Endereço Completo:</label>
+                <input type="text" id="endereco" name="endereco" required aria-required="true" 
+                       placeholder="Rua, Avenida, número, complemento" 
+                       aria-describedby="endereco-help">
+                <small id="endereco-help" class="help-text">Inclua rua, número e complemento</small>
+              </div>
+
+              <div class="form-group">
+                <label for="cep" class="required">CEP:</label>
+                <input type="text" id="cep" name="cep" required aria-required="true" 
+                       placeholder="00000-000" 
+                       pattern="^\d{5}-\d{3}$" 
+                       data-mask="00000-000"
+                       aria-describedby="cep-help">
+                <small id="cep-help" class="help-text">Formato: 00000-000</small>
+              </div>
+            </div>
+
+            <div class="form-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="cidade" class="required">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required aria-required="true" 
+                       placeholder="Nome da cidade" 
+                       pattern="[A-Za-zÀ-ÿ\s]{2,50}" 
+                       aria-describedby="cidade-help">
+                <small id="cidade-help" class="help-text">Nome da sua cidade</small>
+              </div>
+
+              <div class="form-group">
+                <label for="estado" class="required">Estado:</label>
+                <select id="estado" name="estado" required aria-required="true" aria-describedby="estado-help">
+                  <option value="">Selecione o estado</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+                <small id="estado-help" class="help-text">Selecione seu estado</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset aria-labelledby="experiencia-section">
+            <legend id="experiencia-section"><strong>Seção 3: Experiência e Disponibilidade</strong></legend>
+
+            <div class="form-group">
+              <label for="areas" class="required">Área de maior interesse/experiência:</label>
+              <input list="areas-list" id="areas" name="area" required aria-required="true" 
+                     placeholder="Selecione ou digite" aria-describedby="areas-help">
+              <datalist id="areas-list">
+                <option value="Português">Português</option>
+                <option value="Matemática">Matemática</option>
+                <option value="Ciências">Ciências</option>
+                <option value="História">História</option>
+                <option value="Geografia">Geografia</option>
+                <option value="Artes">Artes</option>
+                <option value="Informática">Informática</option>
+                <option value="Inglês">Inglês</option>
+                <option value="Educação Física">Educação Física</option>
+                <option value="Música">Música</option>
+                <option value="Outros">Outros</option>
+              </datalist>
+              <small id="areas-help" class="help-text">Escolha a área que você tem mais experiência</small>
+            </div>
+
+            <div class="form-group">
+              <label for="outros">Se "Outros", especifique:</label>
+              <input type="text" id="outros" name="outros" 
+                     placeholder="Descreva sua área de especialidade" aria-describedby="outros-help">
+              <small id="outros-help" class="help-text">Opcional: especifique outras áreas</small>
+            </div>
+
+            <fieldset class="radio-group" aria-labelledby="experiencia-pedagogica">
+              <legend id="experiencia-pedagogica">Você possui formação/experiência em pedagogia ou ensino?</legend>
+              <div class="radio-options">
+                <div class="radio-option">
+                  <input type="radio" id="exp1" name="experiencia_pedagogica" value="formado" required>
+                  <label for="exp1">Sim, sou formado(a)/licenciado(a)</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="exp2" name="experiencia_pedagogica" value="experiencia" required>
+                  <label for="exp2">Sim, tenho experiência significativa</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="exp3" name="experiencia_pedagogica" value="nao" required>
+                  <label for="exp3">Não, mas tenho vontade de ensinar</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="detalhes_experiencia">Detalhe sua formação/experiência (opcional):</label>
+              <textarea id="detalhes_experiencia" name="detalhes_experiencia" rows="4" 
+                        placeholder="Cursos, anos de experiência, instituições..." 
+                        aria-describedby="detalhes-help"></textarea>
+              <small id="detalhes-help" class="help-text">Opcional: conte mais sobre sua experiência</small>
+            </div>
+
+            <div class="form-group">
+              <label for="arquivo" class="required">Currículo (PDF, DOC ou DOCX):</label>
+              <input type="file" id="arquivo" name="arquivo" required aria-required="true" 
+                     accept=".pdf,.doc,.docx" aria-describedby="arquivo-help">
+              <small id="arquivo-help" class="help-text">Máximo 5MB - Formatos aceitos: PDF, DOC, DOCX</small>
+            </div>
+          </fieldset>
+
+          <fieldset aria-labelledby="disponibilidade-section">
+            <legend id="disponibilidade-section"><strong>Seção 4: Disponibilidade Semanal</strong></legend>
+            <p class="fieldset-description">Selecione os dias da semana em que você pode voluntariar:</p>
+            
+            <div class="checkbox-grid grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div class="checkbox-option">
+                <input type="checkbox" id="monday" name="disponibilidade[]" value="segunda">
+                <label for="monday">Segunda-feira</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="tuesday" name="disponibilidade[]" value="terca">
+                <label for="tuesday">Terça-feira</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="wednesday" name="disponibilidade[]" value="quarta">
+                <label for="wednesday">Quarta-feira</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="thursday" name="disponibilidade[]" value="quinta">
+                <label for="thursday">Quinta-feira</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="friday" name="disponibilidade[]" value="sexta">
+                <label for="friday">Sexta-feira</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="saturday" name="disponibilidade[]" value="sabado">
+                <label for="saturday">Sábado</label>
+              </div>
+              <div class="checkbox-option">
+                <input type="checkbox" id="sunday" name="disponibilidade[]" value="domingo">
+                <label for="sunday">Domingo</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" aria-describedby="submit-help">
+              Enviar Inscrição
+            </button>
+            <small id="submit-help" class="help-text">Ao enviar, você concorda com nossos termos de voluntariado</small>
+          </div>
+        </form>
+      </section>
+    </article>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <address class="contact-info">
+        <h4>Contato da Casa do Saber</h4>
+        <div class="contact-grid grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <strong>Email:</strong>
+            <a href="mailto:casadosaber@ong.com.br">casadosaber@ong.com.br</a>
+          </div>
+          <div>
+            <strong>Telefone:</strong>
+            <a href="tel:+552100000000">+55 (21) 00000-0000</a>
+          </div>
+          <div>
+            <strong>Endereço:</strong>
+            <span>Rio de Janeiro, RJ - Brasil</span>
+          </div>
+        </div>
+      </address>
+      <p class="copyright">© 2025 Casa do Saber. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
